@@ -1,0 +1,9 @@
+.header {
+    display: flex;
+    justify-content: center;
+    width: 80rem;
+}
+.navbar {
+    border: 1px solid rgb(27, 24, 30);
+
+}
