@@ -14,8 +14,7 @@ import {
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { BorderBeam } from "@/components/ui/border-beam";
 import dashboard from "./images/dashboard.png";
-// import Marquee from "@/components/ui/marquee";
-// import { VelocityScroll } from "@/components/ui/scroll-based-velocity";
+
 import Marquee from "react-fast-marquee";
 
 function App() {
