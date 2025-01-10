@@ -15,16 +15,20 @@ import { AnimatedButton } from "@/components/ui/animated-button";
 import { BorderBeam } from "@/components/ui/border-beam";
 import dashboard from "./images/dashboard.png";
 import Marquee from "react-fast-marquee";
+import { FaCheck } from "react-icons/fa6";
+import salesovertime from "./images/salesovertime.png";
+import monthlysales from "./images/monthlysales.png";
+import audienceOnlineActivity from "./images/audienceOnlineActivity.png"
 
 function App() {
 	return (
 		<div className="min-h-screen bg-black text-white ">
 			{/* Navigation */}
-			<header className=" header sticky top-0 z-30 p-5 false ml-80 backdrop-blur ">
-				<nav className="navbar flex items-center justify-center gap-20 p-5 rounded-full ">
+			<header className=" header sticky top-0 z-30 p-5 false ml-80  ">
+				<nav className="navbar text-1xl flex items-center justify-center gap-16 p-3 rounded-full backdrop-blur">
 					<div className="flex items-center">
 						<div className="text-blue-500 text-2xl ml-5">✷</div>
-						<span className="text-xl font-semibold">Darkrise</span>
+						<span className="text-2xl ">Darkrise</span>
 					</div>
 
 					<div className="hidden md:flex items-center space-x-5">
@@ -171,19 +175,210 @@ function App() {
 				</h1>
 			</div>
 			<div className="marquee-container flex items-center justify-center p-10 w-full  mb-8">
-				<Marquee gradient={false} speed={80} className="mb-8 overflow-hidden p-5">
-					<span className=" text-5xl font-bold m-24 ">
-						✷ Logoipsum
-					</span>
-					<span className=" text-5xl font-bold m-24 ">
-						✷ Logoipsum
-					</span>
-					<span className=" text-5xl font-bold m-24 ">
-						✷ Logoipsum
-					</span>
+				<Marquee
+					gradient={false}
+					speed={80}
+					className="mb-8 overflow-hidden p-5"
+				>
+					<span className=" text-5xl font-bold m-24 ">✷ Logoipsum</span>
+					<span className=" text-5xl font-bold m-24 ">✷ Logoipsum</span>
+					<span className=" text-5xl font-bold m-24 ">✷ Logoipsum</span>
 				</Marquee>
 			</div>
-			
+			<div>
+				<div className="min-h-screen bg-black text-white">
+					<div className="container mx-auto px-4 lg:px-8 py-12">
+						<div className="relative rounded-3xl border border-gray-800 bg-gradient-to-br from-gray-900 to-black overflow-hidden">
+							<div className="grid lg:grid-cols-2 gap-8 p-8 lg:p-12">
+								{/* Content Section */}
+								<div className="space-y-8">
+									<div className="space-y-4">
+										<div className="lg:text-6xl tracking-tight p-10 m-10">
+											Get proper data &
+											<span className="block text-gray-500">
+												sales statistics.
+											</span>
+											<p className="text-gray-400 text-2xl mt-10">
+												Gain invaluable predictive analytics and actionable
+												insights, empowering your to make data-driven decisions
+												and close deals more effectively looking.
+											</p>
+										</div>
+									</div>
+
+									<div className="grid grid-cols-2 gap-6 p-10 ml-14">
+										{[
+											"Event marketing",
+											"Content creation",
+											"Brand strategy",
+											"Data analyzing",
+										].map((feature, index) => (
+											<div key={index} className="flex items-center gap-2">
+												<div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20">
+													<FaCheck />
+												</div>
+												<span className="text-sm text-gray-300">{feature}</span>
+											</div>
+										))}
+									</div>
+
+									<Button
+										className="rounded-full px-6 bg-white text-black hover:bg-gray-200 ml-20"
+										size="lg"
+									>
+										Get Started Now
+									</Button>
+								</div>
+
+								{/* Dashboard Section */}
+								<div className="relative">
+									<div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-black/20 backdrop-blur rounded-2xl" />
+									<div className="relative space-y-6 p-6">
+										<img
+											src={salesovertime}
+											alt="Sales Statistics"
+											className="w-full rounded-xl shadow-2xl"
+										/>
+										<div className="grid gap-4">
+											<div className="p-4">
+												<img src={monthlysales} alt="Sales Statistics" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="min-h-screen bg-black text-white">
+					<div className="container mx-auto px-4 lg:px-8 py-12">
+						<div className="relative rounded-3xl border border-gray-800 bg-gradient-to-br from-gray-900 to-black overflow-hidden">
+							<div className="grid lg:grid-cols-2 gap-8 p-8 lg:p-12">
+								{/* Content Section */}
+								<div className="space-y-8">
+									<div className="space-y-4">
+										<div className="lg:text-6xl tracking-tight p-10 m-10">
+											Bring visitors from
+											<span className="block text-gray-500">
+												different sources.
+											</span>
+											<p className="text-gray-400 text-2xl mt-10">
+												Gain invaluable predictive analytics and actionable
+												insights, empowering your to make data-driven decisions
+												and close deals more effectively looking.
+											</p>
+										</div>
+									</div>
+
+									<div className="grid grid-cols-2 gap-6 p-10 ml-14">
+										{[
+											"Event marketing",
+											"Content creation",
+											"Brand strategy",
+											"Data analyzing",
+										].map((feature, index) => (
+											<div key={index} className="flex items-center gap-2">
+												<div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20">
+													<FaCheck />
+												</div>
+												<span className="text-sm text-gray-300">{feature}</span>
+											</div>
+										))}
+									</div>
+
+									<Button
+										className="rounded-full px-6 bg-white text-black hover:bg-gray-200 ml-20"
+										size="lg"
+									>
+										Get Started Now
+									</Button>
+								</div>
+
+								{/* Dashboard Section */}
+								<div className="relative">
+									<div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-black/20 backdrop-blur rounded-2xl" />
+									<div className="relative space-y-6 p-6">
+										<img
+											src={audienceOnlineActivity}
+											alt="Sales Statistics"
+											className="w-full rounded-xl shadow-2xl"
+										/>
+										<div className="grid gap-4">
+											<div className="p-4">
+												<img src={monthlysales} alt="Sales Statistics" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="min-h-screen bg-black text-white">
+					<div className="container mx-auto px-4 lg:px-8 py-12">
+						<div className="relative rounded-3xl border border-gray-800 bg-gradient-to-br from-gray-900 to-black overflow-hidden">
+							<div className="grid lg:grid-cols-2 gap-8 p-8 lg:p-12">
+								{/* Content Section */}
+								<div className="space-y-8">
+									<div className="space-y-4">
+										<div className="lg:text-6xl tracking-tight p-10 m-10">
+											Acquire and retrain
+											<span className="block text-gray-500">
+												more customer.
+																				</span>
+											<p className="text-gray-400 text-2xl mt-10">
+												Gain invaluable predictive analytics and actionable
+												insights, empowering your to make data-driven decisions
+												and close deals more effectively looking.
+											</p>
+										</div>
+									</div>
+
+									<div className="grid grid-cols-2 gap-6 p-10 ml-14">
+										{[
+											"Event marketing",
+											"Content creation",
+											"Brand strategy",
+											"Data analyzing",
+										].map((feature, index) => (
+											<div key={index} className="flex items-center gap-2">
+												<div className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20">
+													<FaCheck />
+												</div>
+												<span className="text-sm text-gray-300">{feature}</span>
+											</div>
+										))}
+									</div>
+
+									<Button
+										className="rounded-full px-6 bg-white text-black hover:bg-gray-200 ml-20"
+										size="lg"
+									>
+										Get Started Now
+									</Button>
+								</div>
+
+								{/* Dashboard Section */}
+								<div className="relative">
+									<div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-black/20 backdrop-blur rounded-2xl" />
+									<div className="relative space-y-6 p-6">
+										<img
+											src={salesovertime}
+											alt="Sales Statistics"
+											className="w-full rounded-xl shadow-2xl"
+										/>
+										<div className="grid gap-4">
+											<div className="p-4">
+												<img src={monthlysales} alt="Sales Statistics" />
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }
