@@ -66,7 +66,7 @@ export function ScrollCarousel() {
 	);
 }
 
-function CarouselPage({ page, index }: { page: CarouselPage; index: number }) {
+function CarouselPage({ page }: { page: CarouselPage; index: number }) {
 	const ref = useRef<HTMLDivElement>(null);
 	const { scrollYProgress } = useScroll({
 		target: ref,
