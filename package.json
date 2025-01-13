@@ -12,10 +12,12 @@
 	"homepage": "./",
 	"dependencies": {
 		"@radix-ui/react-navigation-menu": "^1.2.3",
+		"@radix-ui/react-scroll-area": "^1.2.2",
 		"@radix-ui/react-slot": "^1.1.1",
 		"@shadcn/ui": "^0.0.4",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
+		"embla-carousel-react": "^8.5.2",
 		"lucide-react": "^0.469.0",
 		"motion": "^11.16.2",
 		"react": "^18.3.1",
