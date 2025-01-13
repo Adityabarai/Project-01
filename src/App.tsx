@@ -16,8 +16,63 @@ import { BorderBeam } from "@/components/ui/border-beam";
 import dashboard from "./images/dashboard.png";
 import Marquee from "react-fast-marquee";
 import { ScrollCarousel } from "./components/ui/scroll-carousel";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+	Grid3X3,
+	Calendar,
+	PieChart,
+	MessageSquare,
+	ShoppingBag,
+	Users,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 function App() {
+	const features = [
+		{
+			icon: Grid3X3,
+			title: "Setup Everything Fast",
+			description:
+				"Our system continuously monitors your network and data environments for any suspicious activities.",
+			gradient: "from-blue-500 to-purple-500",
+		},
+		{
+			icon: Calendar,
+			title: "Schedule Campaign",
+			description:
+				"We ensure that all sensitive data is encrypted and at rest, using industry-standard encryption protocols.",
+			gradient: "from-blue-500 to-purple-500",
+		},
+		{
+			icon: PieChart,
+			title: "Live Reports",
+			description:
+				"In the event of a security incident, our automated response system takes immediate action.",
+			gradient: "from-blue-500 to-purple-500",
+		},
+		{
+			icon: MessageSquare,
+			title: "Chat Module in Website",
+			description:
+				"Our system continuously monitors your network and data environments for any suspicious activities.",
+			gradient: "from-blue-500 to-purple-500",
+		},
+		{
+			icon: ShoppingBag,
+			title: "Unlimited Products",
+			description:
+				"We ensure that all sensitive data is encrypted and at rest, using industry-standard encryption protocols.",
+			gradient: "from-blue-500 to-purple-500",
+		},
+		{
+			icon: Users,
+			title: "Collect Information",
+			description:
+				"In the event of a security incident, our automated response system takes immediate action.",
+			gradient: "from-blue-500 to-purple-500",
+		},
+	];
+
 	return (
 		<div className="min-h-screen bg-black text-white ">
 			{/* Navigation */}
@@ -184,6 +239,62 @@ function App() {
 			</div>
 			<div>
 				<ScrollCarousel />
+			</div>
+			<div className="text-center ">
+				<h1 className="md:text-5xl  mb-8 text-gray-500">and, more features</h1>
+				<p className="text-center max-w-prose mx-auto">
+					Gain invaluable predictive analytics and actionable insights,
+					empowering your team to make data-driven decisions and close.
+				</p>
+			</div>
+			<div>
+				<div className="bg-black min-h-screen p-6 md:p-8 mt-10">
+					<div className="max-w-7xl mx-auto">
+						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+							{features.map((feature) => (
+								<Card className="group relative bg-[#111] border-[#222] hover:border-[#333] transition-all duration-500 overflow-hidden p-10">
+									<CardContent className="p-6">
+										<div className="relative">
+											{/* Animated Icon */}
+											<motion.div
+												className="bg-[#222] w-16 h-16 rounded-full flex items-center justify-center mb-4"
+												whileHover={{ y: [-5, 5, -5] }} // Up and down animation
+												transition={{
+													duration: 0.8,
+													repeat: Infinity,
+													repeatType: "loop",
+													ease: "easeInOut",
+												}}
+											>
+												<feature.icon className="w-8 h-8 text-white" />
+											</motion.div>
+										</div>
+
+										{/* Title */}
+										<h3 className="text-2xl font-semibold text-white mb-3">
+											{feature.title}
+										</h3>
+
+										{/* Description */}
+										<p className="text-gray-400 text-1xl leading-relaxed">
+											{feature.description}
+										</p>
+
+										{/* Gradient Corner Effect */}
+										<div
+											className={`absolute -bottom-20 -right-20 w-60 h-40 opacity-0 group-hover:opacity-50 
+									transition-opacity duration-500 ease-in-out bg-gradient-to-br ${feature.gradient}`}
+											style={{
+												borderRadius: "50%",
+												filter: "blur(80px)",
+											}}
+										/>
+									</CardContent>
+								</Card>
+							))}
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
