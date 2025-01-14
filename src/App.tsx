@@ -27,8 +27,7 @@ import {
 	Users,
 } from "lucide-react";
 import Hubspot from "./images/Hubspot.png";
-import Intercom from "./images/Intercom.png";
-import Kickstarter from "./images/Kickstarter.png";
+
 
 function App() {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -78,53 +77,7 @@ function App() {
 		},
 	];
 
-	const integrations = [
-		{
-			name: "Intercom",
-			logo: Hubspot,
-			color: "bg-blue-500",
-		},
-		{
-			name: "Hubspot",
-			logo: Intercom,
-			color: "bg-orange-400",
-		},
-		{
-			name: "Hubspot",
-			logo: Kickstarter,
-			color: "bg-orange-400",
-		},
-		{
-			name: "Kickstarter",
-			logo: Hubspot,
-			color: "bg-emerald-400",
-		},
-		{
-			name: "Shopify",
-			logo: Hubspot,
-			color: "bg-green-400",
-		},
-		{
-			name: "Shopify",
-			logo: Hubspot,
-			color: "bg-green-400",
-		},
-		{
-			name: "Slack",
-			logo: Hubspot,
-			color: "bg-purple-500",
-		},
-		{
-			name: "Zapier",
-			logo: Hubspot,
-			color: "bg-orange-500",
-		},
-		{
-			name: "Mailchimp",
-			logo: Hubspot,
-			color: "bg-yellow-400",
-		},
-	];
+
 
 	return (
 		<div className="min-h-screen bg-black text-white ">
