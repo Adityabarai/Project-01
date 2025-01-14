@@ -1,5 +1,6 @@
 import "./App.css";
 
+import { useState } from "react";
 import { Trophy } from "lucide-react";
 import { Button } from "./components/ui/button";
 
@@ -25,9 +26,13 @@ import {
 	ShoppingBag,
 	Users,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import Hubspot from "./images/Hubspot.png";
+import Intercom from "./images/Intercom.png";
+import Kickstarter from "./images/Kickstarter.png";
 
 function App() {
+	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
 	const features = [
 		{
 			icon: Grid3X3,
@@ -41,35 +46,83 @@ function App() {
 			title: "Schedule Campaign",
 			description:
 				"We ensure that all sensitive data is encrypted and at rest, using industry-standard encryption protocols.",
-			gradient: "from-blue-500 to-purple-500",
+			gradient: "from-green-500 to-teal-500",
 		},
 		{
 			icon: PieChart,
 			title: "Live Reports",
 			description:
 				"In the event of a security incident, our automated response system takes immediate action.",
-			gradient: "from-blue-500 to-purple-500",
+			gradient: "from-red-500 to-pink-500",
 		},
 		{
 			icon: MessageSquare,
 			title: "Chat Module in Website",
 			description:
 				"Our system continuously monitors your network and data environments for any suspicious activities.",
-			gradient: "from-blue-500 to-purple-500",
+			gradient: "from-yellow-500 to-orange-500",
 		},
 		{
 			icon: ShoppingBag,
 			title: "Unlimited Products",
 			description:
 				"We ensure that all sensitive data is encrypted and at rest, using industry-standard encryption protocols.",
-			gradient: "from-blue-500 to-purple-500",
+			gradient: "from-indigo-500 to-purple-500",
 		},
 		{
 			icon: Users,
 			title: "Collect Information",
 			description:
 				"In the event of a security incident, our automated response system takes immediate action.",
-			gradient: "from-blue-500 to-purple-500",
+			gradient: "from-pink-500 to-rose-500",
+		},
+	];
+
+	const integrations = [
+		{
+			name: "Intercom",
+			logo: Hubspot,
+			color: "bg-blue-500",
+		},
+		{
+			name: "Hubspot",
+			logo: Intercom,
+			color: "bg-orange-400",
+		},
+		{
+			name: "Hubspot",
+			logo: Kickstarter,
+			color: "bg-orange-400",
+		},
+		{
+			name: "Kickstarter",
+			logo: Hubspot,
+			color: "bg-emerald-400",
+		},
+		{
+			name: "Shopify",
+			logo: Hubspot,
+			color: "bg-green-400",
+		},
+		{
+			name: "Shopify",
+			logo: Hubspot,
+			color: "bg-green-400",
+		},
+		{
+			name: "Slack",
+			logo: Hubspot,
+			color: "bg-purple-500",
+		},
+		{
+			name: "Zapier",
+			logo: Hubspot,
+			color: "bg-orange-500",
+		},
+		{
+			name: "Mailchimp",
+			logo: Hubspot,
+			color: "bg-yellow-400",
 		},
 	];
 
@@ -251,39 +304,56 @@ function App() {
 				<div className="bg-black min-h-screen p-6 md:p-8 mt-10">
 					<div className="max-w-7xl mx-auto">
 						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-							{features.map((feature) => (
-								<Card className="group relative bg-[#111] border-[#222] hover:border-[#333] transition-all duration-500 overflow-hidden p-10">
-									<CardContent className="p-6">
+							{features.map((feature, index) => (
+								<Card
+									key={index}
+									className="group relative bg-[#111] border-[#222] hover:border-[#333] transition-all duration-500 overflow-hidden"
+								>
+									<CardContent
+										className="p-10"
+										onMouseEnter={() => setHoveredIndex(index)}
+										onMouseLeave={() => setHoveredIndex(null)}
+									>
 										<div className="relative">
 											{/* Animated Icon */}
-											<motion.div
-												className="bg-[#222] w-16 h-16 rounded-full flex items-center justify-center mb-4"
-												whileHover={{ y: [-5, 5, -5] }} // Up and down animation
-												transition={{
-													duration: 0.8,
-													repeat: Infinity,
-													repeatType: "loop",
-													ease: "easeInOut",
-												}}
-											>
-												<feature.icon className="w-8 h-8 text-white" />
-											</motion.div>
+											<div className="flex items-center justify-center w-fit cursor-pointer transition-all duration-300 ease-out rounded-full p-4">
+												<div className="relative w-16 h-16 bg-[#222] rounded-full overflow-hidden">
+													<div
+														className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out ${
+															hoveredIndex === index
+																? "translate-y-[-200%]"
+																: ""
+														}`}
+													>
+														<feature.icon className="w-8 h-8 text-white" />
+													</div>
+													<div
+														className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-out ${
+															hoveredIndex === index
+																? "translate-y-[-50%]"
+																: "translate-y-[100%]"
+														}`}
+													>
+														<feature.icon className="w-8 h-8 text-white" />
+													</div>
+												</div>
+											</div>
 										</div>
 
 										{/* Title */}
-										<h3 className="text-2xl font-semibold text-white mb-3">
+										<h3 className="text-2xl font-semibold text-white mb-3 mt-6">
 											{feature.title}
 										</h3>
 
 										{/* Description */}
-										<p className="text-gray-400 text-1xl leading-relaxed">
+										<p className="text-gray-400 text-base leading-relaxed">
 											{feature.description}
 										</p>
 
 										{/* Gradient Corner Effect */}
 										<div
 											className={`absolute -bottom-20 -right-20 w-60 h-40 opacity-0 group-hover:opacity-50 
-									transition-opacity duration-500 ease-in-out bg-gradient-to-br ${feature.gradient}`}
+                  transition-opacity duration-500 ease-in-out bg-gradient-to-br ${feature.gradient}`}
 											style={{
 												borderRadius: "50%",
 												filter: "blur(80px)",
@@ -293,6 +363,184 @@ function App() {
 								</Card>
 							))}
 						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div className="min-h-screen  flex items-center justify-center -m-32 ">
+					<div className="max-w-6xl mx-auto w-full space-y-12 border border-[#222] rounded p-10 ">
+						<div className="text-center space-y-6">
+							<h2 className="text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-gray-200/80 to-gray-200/60">
+								Connect with 100+ tools
+							</h2>
+							<p className="text-gray-400 text-lg md:text-xl max-w-xl mx-auto p-3">
+								Gain invaluable predictive analytics and actionable insights
+								empowering you to make data-driven decisions.
+							</p>
+							<Button
+								variant="outline"
+								size="lg"
+								className="bg-gray-900/50 text-gray-200 border-gray-800 hover:bg-gray-800/50"
+							>
+								Explore All Tools
+								<span className="ml-2">→</span>
+							</Button>
+						</div>
+
+						<Marquee
+							gradient={false}
+							speed={80}
+							className="flex overflow-hidden "
+						>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+						</Marquee>
+
+						<Marquee
+							direction="right"
+							gradient={false}
+							speed={80}
+							className="flex overflow-hidden"
+						>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+							<div className="p-10">
+								<Card className="bg-gray-900/50 border-gray-800 hover:bg-gray-800/50 transition-colors">
+									<CardContent className="p-6 flex flex-col items-center justify-center space-y-3">
+										<div
+											className={`w-28 h-10 rounded-full flex items-center justify-center`}
+										>
+											<img src={Hubspot} className="w-10 h-10" />
+										</div>
+										<span className="text-gray-400 text-sm font-medium">
+											aditya
+										</span>
+									</CardContent>
+								</Card>
+							</div>
+						</Marquee>
 					</div>
 				</div>
 			</div>
