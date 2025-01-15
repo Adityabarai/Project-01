@@ -3,7 +3,7 @@ import CEO from "../../images/CEO.png";
 
 export function TestimonialSection() {
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-900 flex flex-col items-center justify-center p-4 md:p-8  ">
+		<div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 mt-10">
 			{/* Top Section */}
 			<div className="text-center mb-16 space-y-4">
 				<a
@@ -18,14 +18,14 @@ export function TestimonialSection() {
 			</div>
 
 			{/* Testimonial Card */}
-			<Card className="max-w-5xl w-full bg-black/30 border-gray-800 backdrop-blur-sm ">
-				<div className="grid md:grid-cols-2 gap-8 p-6 md:p-8">
+			<Card className="max-w-6xl w-full bg-black/30 border-gray-800 backdrop-blur-sm px-6 md:px-16 py-8 md:py-12">
+				<div className="grid md:grid-cols-2 gap-12 p-6 md:p-8">
 					{/* Image Section */}
-					<div className="relative aspect-[4/5] md:aspect-aut ">
+					<div className="relative aspect-[4/5] md:aspect-auto">
 						<img
 							src={CEO}
 							alt="Customer testimonial"
-							className="rounded object-contain w-full h-full hover:scale-110 p-5"
+							className="rounded object-contain w-full h-full hover:scale-110 transition-transform duration-300 p-5"
 						/>
 					</div>
 
@@ -35,7 +35,7 @@ export function TestimonialSection() {
 							The Key to Our Success
 						</h3>
 
-						<blockquote className="text-lg md:text-xl text-gray-400 ">
+						<blockquote className="text-lg md:text-xl text-gray-400">
 							"Our business wouldn't be where it is today without DarkRise. The
 							feature has been instrumental in our growth."
 						</blockquote>

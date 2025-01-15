@@ -34,6 +34,9 @@ import Zapier from "./images/Zapier.png";
 import Slack from "./images/Slack.png";
 import Shopify from "./images/Shopify.png";
 import { TestimonialSection } from "./components/ui/testimonial-section";
+import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
+// import { Sparkles } from "lucide-react";
+// import { Link } from "react-router-dom";
 
 function App() {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -82,6 +85,53 @@ function App() {
 			gradient: "from-pink-500 to-rose-500",
 		},
 	];
+
+	interface Testimonial {
+		name: string;
+		role: string;
+		company: string;
+		quote: string;
+		image: string;
+	}
+
+	const testimonials: Testimonial[] = [
+		{
+			name: "Emily Brown",
+			role: "Data Scientist",
+			company: "StartupCo",
+			quote:
+				"I've tried other data analytics tools, but none compare to DarkRise. The feature is simply amazing.",
+			image:
+				"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rdEPgofG6nP5uKkpU1zkvuYKdperTd.png",
+		},
+		{
+			name: "David Miller",
+			role: "CEO",
+			company: "SmallBizCo",
+			quote:
+				"Our business wouldn't be where it is today without DarkRise. The feature has been instrumental in our growth.",
+			image:
+				"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rdEPgofG6nP5uKkpU1zkvuYKdperTd.png",
+		},
+		{
+			name: "Sarah Johnson",
+			role: "Marketing Manager",
+			company: "NonProfit",
+			quote:
+				"I was worried about the learning curve, but DarkRise is incredibly user-friendly. I was able to start seeing results almost immediately.",
+			image:
+				"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rdEPgofG6nP5uKkpU1zkvuYKdperTd.png",
+		},
+		{
+			name: "Michael Johnson",
+			role: "VP of Marketing",
+			company: "RetailCo",
+			quote:
+				"We were struggling to make sense of our data, but DarkRise has given us the clarity we needed. The feature has helped us identify new opportunities.",
+			image:
+				"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rdEPgofG6nP5uKkpU1zkvuYKdperTd.png",
+		},
+	]; 
 
 	return (
 		<div className="min-h-screen bg-black text-white ">
@@ -504,6 +554,328 @@ function App() {
 			<div>
 				<TestimonialSection />
 			</div>
+			<div className="bg-black py-12 mt-20">
+				<div className="container mt-10">
+					<div className="grid grid-cols-3">
+						{/* Column 1 */}
+						<div>
+							<Marquee
+								direction="up"
+								speed={30}
+								pauseOnHover
+								gradient={false}
+								className="h-[500px] overflow-hidden" // Reduced height
+							>
+								{testimonials.map((testimonial, index) => (
+									<div key={`col1-${index}`} className="flex">
+										<Card className="bg-zinc-900 border-zinc-800 w-[550px] h-[250px]">
+											{" "}
+											{/* Adjusted card height */}
+											<CardContent className="p-10 flex flex-col items-start">
+												<p className="text-zinc-300 text-xl leading-relaxed">
+													"{testimonial.quote}"
+												</p>
+												<div className="flex items-center mt-3">
+													<Avatar>
+														<AvatarImage
+															src={testimonial.image}
+															alt={testimonial.name}
+														/>
+														<AvatarFallback>
+															{testimonial.name
+																.split(" ")
+																.map((n) => n[0])
+																.join("")}
+														</AvatarFallback>
+													</Avatar>
+													<div className="ml-3">
+														<h3 className="text-lg font-bold text-white">
+															{testimonial.name}
+														</h3>
+														<p className="text-sm text-zinc-400">
+															{testimonial.role}, {testimonial.company}
+														</p>
+													</div>
+												</div>
+											</CardContent>
+										</Card>
+									</div>
+								))}
+							</Marquee>
+						</div>
+
+						{/* Repeat for Column 2 and Column 3 */}
+						<div>
+							<Marquee
+								direction="up"
+								speed={30}
+								pauseOnHover
+								gradient={false}
+								className="h-[500px] overflow-hidden" // Reduced height
+							>
+								{testimonials.map((testimonial, index) => (
+									<div key={`col1-${index}`} className="flex">
+										<Card className="bg-zinc-900 border-zinc-800 w-[550px] h-[250px]">
+											{" "}
+											{/* Adjusted card height */}
+											<CardContent className="p-10 flex flex-col items-start">
+												<p className="text-zinc-300 text-xl leading-relaxed">
+													"{testimonial.quote}"
+												</p>
+												<div className="flex items-center mt-3">
+													<Avatar>
+														<AvatarImage
+															src={testimonial.image}
+															alt={testimonial.name}
+														/>
+														<AvatarFallback>
+															{testimonial.name
+																.split(" ")
+																.map((n) => n[0])
+																.join("")}
+														</AvatarFallback>
+													</Avatar>
+													<div className="ml-3">
+														<h3 className="text-lg font-bold text-white">
+															{testimonial.name}
+														</h3>
+														<p className="text-sm text-zinc-400">
+															{testimonial.role}, {testimonial.company}
+														</p>
+													</div>
+												</div>
+											</CardContent>
+										</Card>
+									</div>
+								))}
+							</Marquee>
+						</div>
+
+						<div>
+							<Marquee
+								direction="up"
+								speed={30}
+								pauseOnHover
+								gradient={false}
+								className="h-[500px] overflow-hidden" // Reduced height
+							>
+								{testimonials.map((testimonial, index) => (
+									<div key={`col1-${index}`} className="flex">
+										<Card className="bg-zinc-900 border-zinc-800 w-[550px] h-[250px]">
+											{" "}
+											{/* Adjusted card height */}
+											<CardContent className="p-10 flex flex-col items-start">
+												<p className="text-zinc-300 text-xl leading-relaxed">
+													"{testimonial.quote}"
+												</p>
+												<div className="flex items-center mt-3">
+													<Avatar>
+														<AvatarImage
+															src={testimonial.image}
+															alt={testimonial.name}
+														/>
+														<AvatarFallback>
+															{testimonial.name
+																.split(" ")
+																.map((n) => n[0])
+																.join("")}
+														</AvatarFallback>
+													</Avatar>
+													<div className="ml-3">
+														<h3 className="text-lg font-bold text-white">
+															{testimonial.name}
+														</h3>
+														<p className="text-sm text-zinc-400">
+															{testimonial.role}, {testimonial.company}
+														</p>
+													</div>
+												</div>
+											</CardContent>
+										</Card>
+									</div>
+								))}
+							</Marquee>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="mt-80 flex justify-center">
+				<Button>
+					<AnimatedButton className="hover:bg-gray-800 rounded-full mr-5 px-8 py-6">
+						Get This Template
+					</AnimatedButton>
+				</Button>
+			</div>
+			<div className="px-80 mt-10">
+				<div className="bg-black/30 border border-[#222] rounded px-16 pt-16 overflow-hidden bg-[url('./images/banner.png')] bg-cover">
+					<div className="container mx-auto px-4 mt-16 ">
+						<div className="grid lg:grid-cols-2 items-center relative ">
+							{/* Left Column */}
+							<div className="space-y-6 relative z-10">
+								<h1 className="text-5xl font-medium leading-tight text-gray-400 -mt-40 ">
+									Grow your sales now
+								</h1>
+								<p className="text-xl text-gray-400 max-w-xl">
+									Gain invaluable predictive analytics and actionable insights
+									empowering you to make data-driven decisions.
+								</p>
+
+								<Button>
+									<AnimatedButton className="bg-black hover:bg-gray-800 rounded-full mr-5 px-8 py-6 mt-60">
+										Explore All Tools 
+									</AnimatedButton>
+								</Button>
+							</div>
+
+							{/* Right Column */}
+							<div className="relative">
+								<img
+									src={dashboard}
+									alt="Sales Dashboard"
+									className="ml-32 rounded-lg shadow-2xl"
+								/>
+							</div>
+
+							{/* Gradient Background */}
+							<div className="absolute bottom-0 left-0 right-0 h-[500px] bg-gradient-to-tr from-blue-600/20 via-purple-500/20 to-pink-500/20 blur-3xl -z-10" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer className="bg-black text-gray-400 py-16 mt-28">
+				<div className="container mx-auto px-4">
+					{/* Logo Section */}
+					<div className="mb-16 cursor-pointer flex items-center">
+						{/* <Link to="/" className="flex items-center gap-2 text-white"> */}
+						{/* <Sparkles className="w-6 h-6 text-blue-500" /> */}
+						<div className="text-blue-500 text-4xl"> ✷ </div>
+						<span className="text-5xl ml-1">Darkrise</span>
+						{/* </Link> */}
+					</div>
+
+					{/* Navigation Grid */}
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+						{/* Company Column */}
+						<div className="space-y-4">
+							<h3 className="text-gray-500 font-medium cursor-pointer">
+								Company
+							</h3>
+							<ul className="space-y-3 cursor-pointer pt-10 text-white">
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									About
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Product Features
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Changelog
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Contact
+									{/* </Link> */}
+								</li>
+							</ul>
+						</div>
+
+						{/* Product Column */}
+						<div className="space-y-4">
+							<h3 className="text-gray-500 font-medium cursor-pointer ">
+								Product
+							</h3>
+							<ul className="space-y-3 cursor-pointer pt-10 text-white">
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Pricing & Plans
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Product Features
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Integration
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Integration Details
+									{/* </Link> */}
+								</li>
+							</ul>
+						</div>
+
+						{/* Resources Column */}
+						<div className="space-y-4 cursor-pointer">
+							<h3 className="text-gray-500 font-medium">Resources</h3>
+							<ul className="space-y-3 cursor-pointer pt-10 text-white">
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Blog
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Blog Details
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Changelog
+									{/* </Link> */}
+								</li>
+							</ul>
+						</div>
+
+						{/* Services Column */}
+						<div className="space-y-4">
+							<h3 className="text-gray-500 font-medium cursor-pointer">
+								Services
+							</h3>
+							<ul className="space-y-3 cursor-pointer pt-10 text-white">
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Book A Demo
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									Contact
+									{/* </Link> */}
+								</li>
+								<li>
+									{/* <Link to="/" className="hover:text-white transition-colors"> */}
+									404
+									{/* </Link> */}
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					{/* Bottom Section */}
+					<div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800">
+						<p className="text-sm mb-4 md:mb-0">
+							Copyright © 2024 Darkrise. All Rights Reserved
+						</p>
+						<div className="flex gap-6 text-sm cursor-pointer">
+							{/* <Link to="/" className="hover:text-white transition-colors"> */}
+							Privacy Policy
+							{/* </Link>
+							<Link to="/" className="hover:text-white transition-colors"> */}
+							Terms & Conditions
+							{/* </Link> */}
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
 	);
 }
