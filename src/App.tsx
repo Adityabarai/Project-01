@@ -37,6 +37,12 @@ import { TestimonialSection } from "./components/ui/testimonial-section";
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar";
 // import { Sparkles } from "lucide-react";
 // import { Link } from "react-router-dom";
+import person1 from "./images/person1 (1).png"
+import person2 from "./images/person1 (2).png"
+import person3 from "./images/person1 (3).png"
+import person4 from "./images/person1 (4).png"
+import person5 from "./images/person1 (5).png"
+import person6 from "./images/person1 (6).png"
 
 function App() {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -102,7 +108,7 @@ function App() {
 			quote:
 				"I've tried other data analytics tools, but none compare to DarkRise. The feature is simply amazing.",
 			image:
-				"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rdEPgofG6nP5uKkpU1zkvuYKdperTd.png",
+				person1,
 		},
 		{
 			name: "David Miller",
@@ -111,7 +117,7 @@ function App() {
 			quote:
 				"Our business wouldn't be where it is today without DarkRise. The feature has been instrumental in our growth.",
 			image:
-				"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rdEPgofG6nP5uKkpU1zkvuYKdperTd.png",
+				person2,
 		},
 		{
 			name: "Sarah Johnson",
@@ -120,7 +126,7 @@ function App() {
 			quote:
 				"I was worried about the learning curve, but DarkRise is incredibly user-friendly. I was able to start seeing results almost immediately.",
 			image:
-				"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rdEPgofG6nP5uKkpU1zkvuYKdperTd.png",
+				person3,
 		},
 		{
 			name: "Michael Johnson",
@@ -129,7 +135,25 @@ function App() {
 			quote:
 				"We were struggling to make sense of our data, but DarkRise has given us the clarity we needed. The feature has helped us identify new opportunities.",
 			image:
-				"https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-rdEPgofG6nP5uKkpU1zkvuYKdperTd.png",
+				person4,
+		},
+		{
+			name: "Emily Brown",
+			role: "Data Scientist",
+			company: "StartupCo",
+			quote:
+				"I've tried other data analytics tools, but none compare to DarkRise. The feature is simply amazing.",
+			image:
+				person5,
+		},
+		{
+			name: "David Miller",
+			role: "CEO",
+			company: "SmallBizCo",
+			quote:
+				"Our business wouldn't be where it is today without DarkRise. The feature has been instrumental in our growth.",
+			image:
+				person6,
 		},
 	]; 
 
@@ -741,7 +765,7 @@ function App() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> 
 			<footer className="bg-black text-gray-400 py-16 mt-28">
 				<div className="container mx-auto px-4">
 					{/* Logo Section */}
